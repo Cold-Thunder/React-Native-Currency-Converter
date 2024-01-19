@@ -22,10 +22,10 @@ const CurrencyConvert = () => {
     const width = useWindowDimensions().width;
     const height = useWindowDimensions().height;
 
-    const handlePress = (price, sym) => {
-        let res = parseFloat(inputValue * price).toFixed(2);
+    const handlePress = (price) => {
+        let res = parseFloat(inputValue * price.value).toFixed(2);
         setResultValue(res)
-        setSymbol(sym)
+        setSymbol(price.symbol)
     }
 
     return (
@@ -47,8 +47,8 @@ const CurrencyConvert = () => {
                     numColumns={3}
                     data={constent}
                     renderItem={({ item }) => (
-                        <TouchableOpacity onPress={() => { handlePress(item.value, item.symbol) }}>
-                            <CurrencyBtn name={item.name} flag={item.flag} />
+                        <TouchableOpacity onPress={() => { handlePress(item) }} >
+                            <CurrencyBtn name={item.name} flag={item.flag} styles={symbol === item.symbol && styles.selected}/>
                         </TouchableOpacity>
                     )}
                     keyExtractor={item => item.name}
@@ -61,6 +61,10 @@ const CurrencyConvert = () => {
 export default CurrencyConvert;
 
 const styles = StyleSheet.create({
+    selected: {   //we will pass this style to currencyBtn component
+        backgroundColor: "#aaa"
+    },
+
     container: {
         flex: 1,
         justifyContent: "center",
@@ -127,5 +131,5 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         // backgroundColor: 'blue'
-    }
+    },
 })

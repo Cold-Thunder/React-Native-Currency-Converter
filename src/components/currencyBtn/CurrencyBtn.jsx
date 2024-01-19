@@ -3,7 +3,7 @@ import { StyleSheet, View,Text } from 'react-native'
 
 const CurrencyBtn = (props) =>{
     return(
-        <View style={styles.currencyBtn}>
+        <View style={[styles.currencyBtn, props.styles]}>
             <Text style={styles.flagStyle}>{props.flag}</Text>
             <Text style={styles.nameStyle}>{props.name}</Text>
         </View>
@@ -30,5 +30,5 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "black",
         fontWeight: "bold"
-    }
+    },
 })
