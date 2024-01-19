@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: "row",
         flexWrap: "wrap",
-        width: "95%",
+        width: "90%",
         height: "70%"
         // backgroundColor: 'red'
     },
